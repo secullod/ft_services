@@ -3,7 +3,7 @@
 # START MINIKUBE
 minikube start --driver=docker --cpus 2 --memory 4g --addons metallb --addons metrics-server --addons dashboard
 
-# Use the docker daemon from minikube.
+# # Use the docker daemon from minikube.
 eval $(minikube docker-env)
 
 docker build -t my_nginx srcs/nginx --network=host

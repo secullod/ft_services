@@ -6,4 +6,4 @@
 # For normal production on a server, use the default daemon on. In this case for Docker containers, set the daemon off.
 # "&" run multiple commands simultaneously.
 # "&&" does not allow to continue the execution sequence of the commands, until they are executed consecutively(one by one), correctly
-telegraf & /usr/sbin/sshd && nginx -g 'daemon off;'
+telegraf & /usr/sbin/sshd && nginx -t & nginx -g 'daemon off;'
