@@ -11,6 +11,7 @@ RUN		openssl req -x509 -nodes -days 365 \
 
 RUN		ssh-keygen -A
 
+COPY	/srcs/sshd_config			/etc/ssh/
 COPY	/srcs/telegraf.conf			/etc/telegraf/
 COPY	/srcs/nginx.conf			/etc/nginx/
 COPY	/srcs/start.sh				/

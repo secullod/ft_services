@@ -12,6 +12,6 @@ COPY	/srcs/telegraf.conf			/etc/telegraf/
 COPY	/srcs/vsftpd.conf			/etc/vsftpd
 COPY	/srcs/start.sh				/
 
-EXPOSE	20 21 30000
+EXPOSE	21 20 30000
 
 ENTRYPOINT	sh start.sh
