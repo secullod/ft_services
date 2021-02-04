@@ -1,4 +1,4 @@
-<img src="ft_services.png" width="143" height="80">
+<img src="ft_services.png" width="281" height="80">
 <img src="ft_servicesdetails.png">
 
 ## About
