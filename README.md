@@ -1,25 +1,19 @@
-<img src="ft_services.png" width="281" height="80">
-<img src="ft_servicesdetails.png">
+<img src="./images/ft_services.png" width="281" height="80">
+<img src="./images/ft_servicesdetails.png">
 
 ## About
-Libft is a project to create a library of functions to be used in any later C project. It is a re-creation of several libc functions and additional functions to help with linked lists, strings, ints, and chars. I will be updating this repository as I find need to create other functions to be used in later projects.
 
-## How to run
+The project consists of setting up an infrastructure of different services using Kubernetes multi-service cluster. You will need to set up a multi-service cluster.
 
-First clone the repository and compile the library
+Each service runs in its own dedicated Alpine Linux container bearing its name and built with a Dockerfile called in setup.sh.
 
-    git clone https://github.com/secullod/libft.git
-    cd libft
-    make
+The project includes:
 
-I have included a main.c file which can be used to test any function in the library.
-
-You must first link the main.c file to the library by the below command.
-
-`gcc main.c libft`<br>
-
-Then type `./a.out` to run the functions you have called inside of the main.c file
-
-## What I learned from this project
-
-This project was a chance to become familiar with the basic functions of libc and to additionally create some other similar helpful functions. I improved my understanding of memory management, linked lists, and improved my general coding skills in the C programming language.
+• A Kubernetes web dashboard for managing the cluster
+• A Load Balancer which manages the external access of the services. It is the only entry point of the cluster.
+• A WordPress website listening on port 5050, which works with a MySQL database running in a separate container. The WordPress website runs in its own nginx server and has several users and an administrator.
+• phpMyAdmin in its own nginx server, listening on port 5000 and linked with the MySQL database.
+• A container with an nginx server listening on ports 80 and 443. Port 80 is in http and is a systematic redirection of type 301 to 443, which is in https.
+• A FTPS server listening on port 21.
+• A Grafana platform, listening on port 3000, linked with an InfluxDB database. Grafana monitors all containers and includes a dashboard for each service. InfluxDB and grafana are in two distincts containers.
+• All containers restart in case of a crash or stop of one of its component parts.
